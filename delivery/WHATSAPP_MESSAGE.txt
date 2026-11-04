@@ -1,0 +1,21 @@
+Hi Afram,
+
+Thanks for the feedback — that makes sense. I've split the submission exactly that way.
+
+1) Presentation (start here — 11 slides, no code):
+https://jpa-elite.github.io/fixpart-category-analysis/downloads/01_Presentation_FixPart_Category_Analysis.pdf
+
+2) Final result (2 pages) + category tree:
+https://jpa-elite.github.io/fixpart-category-analysis/downloads/02_Final_Result_FixPart_Category_Analysis.pdf
+CSV and JSON versions are on the overview page: https://jpa-elite.github.io/fixpart-category-analysis/
+
+3) Everything related to the code, data and research (for the technical team):
+https://github.com/JPA-Elite/fixpart-category-analysis
+Or the ZIP: https://jpa-elite.github.io/fixpart-category-analysis/downloads/03_Code_and_Data.zip
+
+The first two are written for a non-technical reader. The third link contains the full repository: Laravel migration, importer, Meilisearch indexer and settings, the captured category tree, the research evidence and the full technical report.
+
+Happy to walk you through it in 30 minutes if that is useful.
+
+Best regards,
+[Your name]

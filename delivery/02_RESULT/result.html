@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>FixPart.de Category Structure — Final Result</title>
+<style>
+  :root{--ink:#0B1B2B;--navy:#0F2E4A;--blue:#1B6CA8;--accent:#F26B21;--muted:#5B6B7A;--line:#E1E7EE;--soft:#F5F8FB}
+  *{box-sizing:border-box;margin:0;padding:0}
+  @page{size:A4;margin:0}
+  html,body{background:#fff;color:var(--ink);font-family:"Segoe UI","Helvetica Neue",Arial,sans-serif;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .page{width:210mm;height:297mm;padding:13mm 14mm 11mm;position:relative;overflow:hidden;page-break-after:always;background:#fff}
+  .page:last-child{page-break-after:auto}
+  .eyebrow{font-size:7.4pt;letter-spacing:.15em;text-transform:uppercase;color:var(--blue);font-weight:700}
+  h1{font-size:21pt;line-height:1.1;letter-spacing:-.02em;margin-top:3mm;color:var(--ink)}
+  h2{font-size:11.5pt;line-height:1.2;color:var(--navy);margin-bottom:2.2mm;letter-spacing:-.01em}
+  h3{font-size:8.8pt;color:var(--navy);margin-bottom:1mm}
+  p{font-size:8.8pt;line-height:1.42;color:#33475B}
+  .lead{font-size:10pt;line-height:1.45;color:var(--muted);margin-top:2.5mm;max-width:172mm}
+  .rule{width:14mm;height:1.2mm;background:var(--accent);border-radius:1mm;margin:3.2mm 0}
+  .section{margin-top:4.2mm}
+  .section-head{display:flex;align-items:baseline;gap:2.5mm;border-bottom:0.35mm solid var(--line);padding-bottom:1.2mm;margin-bottom:2.4mm}
+  .section-head .n{font-size:7.2pt;font-weight:700;color:var(--accent);letter-spacing:.08em}
+  .section-head h2{margin:0}
+  .muted{color:var(--muted)}
+  .small{font-size:7.1pt;line-height:1.38;color:#7B8B9B}
+  b{color:var(--ink)}
+
+  .summary{border-left:1.2mm solid var(--accent);background:#FFF7F2;border-radius:0 2mm 2mm 0;padding:3mm 4mm;margin-top:3.5mm}
+  .summary p{font-size:9.2pt;line-height:1.42;color:#4A3527}
+  .summary .big{font-size:10.2pt;font-weight:700;color:var(--navy);line-height:1.35;margin-bottom:1.5mm}
+  .points{display:grid;grid-template-columns:1fr 1fr;gap:2mm 5mm;margin-top:2mm}
+  .point{display:grid;grid-template-columns:4.2mm 1fr;gap:1.6mm;font-size:7.9pt;line-height:1.38;color:#3C4F61}
+  .point .k{width:4.2mm;height:4.2mm;border-radius:50%;background:var(--navy);color:#fff;font-size:6.5pt;font-weight:700;display:flex;align-items:center;justify-content:center;margin-top:0.4mm}
+
+  table{width:100%;border-collapse:collapse}
+  th{font-size:6.7pt;letter-spacing:.09em;text-transform:uppercase;color:#7B8B9B;text-align:left;padding:0 2mm 1.5mm;border-bottom:0.45mm solid #D9E2EA}
+  td{font-size:7.8pt;line-height:1.33;color:#2C3E50;padding:1.55mm 2mm;border-bottom:0.25mm solid var(--line);vertical-align:top}
+  td.num{font-weight:700;color:var(--navy);white-space:nowrap;font-variant-numeric:tabular-nums}
+  tr.hl td{background:#FFF8F3}
+  tr.hl td:first-child{box-shadow:inset 1mm 0 0 var(--accent)}
+  .badge{display:inline-block;font-size:6.4pt;font-weight:700;padding:.6mm 1.4mm;border-radius:1mm}
+  .yes{background:#E8F5EC;color:#23733A}.no{background:#F1F3F5;color:#7A8794}
+
+  .cols{display:grid;grid-template-columns:1fr 1fr;gap:5mm}
+  .cols3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:4mm}
+  .card{border:0.3mm solid var(--line);border-radius:1.8mm;padding:2.6mm 3mm;background:var(--soft)}
+  .card .k{font-size:6.5pt;letter-spacing:.1em;text-transform:uppercase;color:#8494A4;font-weight:700}
+  .card .v{font-size:8.2pt;font-weight:600;color:var(--ink);margin-top:1mm;line-height:1.35}
+  .card.warm{background:#FFF9F4;border-color:#F3D2BC}
+  .card.warm .v{color:#8F4614}
+
+  ul.clean{list-style:none}
+  ul.clean li{font-size:7.8pt;line-height:1.38;color:#3C4F61;padding-left:4mm;position:relative;margin-bottom:1.3mm}
+  ul.clean li:before{content:"";position:absolute;left:0;top:1.35mm;width:1.5mm;height:1.5mm;border-radius:50%;background:var(--accent)}
+  ul.ticks li:before{content:"✓";color:#2E8B4F;background:none;font-weight:700;font-size:8pt;top:-0.2mm;left:0}
+  ul.plus li:before{content:"+";color:var(--accent);background:none;font-weight:700;font-size:9pt;top:-0.5mm;left:0}
+
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:2.4mm;margin-top:1mm}
+  .step{border:0.3mm solid var(--line);border-radius:1.6mm;padding:2.2mm 2.4mm}
+  .step .n{width:4.4mm;height:4.4mm;border-radius:50%;background:var(--navy);color:#fff;font-size:6.6pt;font-weight:700;display:flex;align-items:center;justify-content:center}
+  .step h3{font-size:7.8pt;margin:1.4mm 0 .7mm}
+  .step p{font-size:6.9pt;line-height:1.35;color:var(--muted)}
+
+  .phase{display:grid;grid-template-columns:19mm 1fr;gap:3mm;padding:1.7mm 0;border-bottom:0.25mm solid var(--line)}
+  .phase:last-child{border-bottom:0}
+  .phase .when{font-size:6.7pt;letter-spacing:.08em;text-transform:uppercase;color:#8998A8;font-weight:700;padding-top:.3mm}
+  .phase .what b{font-size:8pt;color:var(--navy)}
+  .phase .what p{font-size:7.3pt;line-height:1.35;color:var(--muted);margin-top:.3mm}
+
+  .foot{position:absolute;left:14mm;right:14mm;bottom:7mm;border-top:0.25mm solid var(--line);padding-top:1.6mm;display:flex;justify-content:space-between;font-size:6.6pt;color:#8A99A8;letter-spacing:.05em;text-transform:uppercase}
+  .foot b{color:var(--navy)}
+</style>
+</head>
+<body>
+
+<!-- PAGE 1 -->
+<div class="page">
+  <div class="eyebrow">Ersatzteilstore · Application task · November 2026</div>
+  <h1>FixPart.de category structure — final result</h1>
+  <p class="lead">How fixpart.de organises more than 20 million spare parts, what our three API shops do differently, and how we would rebuild the same structure in Laravel, PostgreSQL and Meilisearch.</p>
+  <div class="rule"></div>
+
+  <div class="summary">
+    <p class="big">FixPart did not build a bigger category tree. It built a product database with a curated navigation on top.</p>
+    <p>The wholesaler API supplies the facts: article numbers, brands, device types, compatibility, price and stock. FixPart adds the editorial layer — its own appliance names, 375 part categories, a five-level classification, SEO landing pages and a fit guarantee. That layer is what makes the shop feel curated; it is also the part we have to build ourselves.</p>
+    <div class="points">
+      <div class="point"><span class="k">1</span><span><b>Two axes, not one tree.</b> Customers start with their appliance or with the part. Both paths use the same products.</span></div>
+      <div class="point"><span class="k">2</span><span><b>Navigation is device-first.</b> 105 appliance groups → 1,511 brands → model / type number, with a separate A–Z part index.</span></div>
+      <div class="point"><span class="k">3</span><span><b>URLs are a fixed matrix.</b> Appliance × brand × part pages are generated; breadcrumbs come from the URL, not the classification.</span></div>
+      <div class="point"><span class="k">4</span><span><b>One product, many listings.</b> One classification path per SKU; compatibility links create the many entry points without duplicating products.</span></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-head"><span class="n">01</span><h2>The structure in numbers</h2></div>
+    <table>
+      <thead><tr><th style="width:11%">Axis</th><th style="width:30%">Level</th><th style="width:16%">Nodes</th><th>Example</th></tr></thead>
+      <tbody>
+        <tr><td>Device</td><td><b>L1 · Appliance group</b></td><td class="num">105</td><td>Waschmaschine, Kühlschrank, Backofen</td></tr>
+        <tr><td>Device</td><td><b>L2 · Brand</b></td><td class="num">1,511</td><td>Bosch, Siemens, Miele (site claims 2,000+)</td></tr>
+        <tr><td>Device</td><td><b>L3 · Model / type number</b></td><td class="num">thousands / brand</td><td>WGG244Z40 — reached through the type-number filter, not a page level</td></tr>
+        <tr class="hl"><td>Part</td><td><b>L1 · Browsable part category</b></td><td class="num">375</td><td>Türgummi, Türfach, Pumpe, Kohlefilter</td></tr>
+        <tr class="hl"><td>Part</td><td><b>L2–L5 · Internal classification</b></td><td class="num">5 levels</td><td>Mechanisch › Gehäuseteil › Fenster › Tür</td></tr>
+      </tbody>
+    </table>
+    <p class="small" style="margin-top:1.8mm"><b>Classification sample:</b> 33 verified nodes across 39 product pages — L1: 3, L2: 7, L3: 14, L4: 8, L5: 1. The full classification only exists in the supplier feed, so this is evidence of the model, not a complete census. FixPart markets “5,000+ categories”, but only 375 have a public index page; the rest are classification leaves and generated appliance × brand × part combinations.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-head"><span class="n">02</span><h2>How the customer moves — and how the page is built</h2></div>
+    <div class="cols3">
+      <div class="card"><div class="k">Navigation</div><div class="v">Appliance → brand → part → type number</div><p class="small" style="margin-top:1.2mm">The main entrance is <b>/gerate</b> with 105 appliance groups. People who know the part name use the flat A–Z index at <b>/ersatzteile/{part}</b>.</p></div>
+      <div class="card"><div class="k">URLs &amp; breadcrumbs</div><div class="v">A fixed matrix of the two axes</div><p class="small" style="margin-top:1.2mm"><b style="white-space:nowrap;font-size:7pt">/waschmaschine-ersatzteile/bosch/turgummi</b> is the deepest example. The breadcrumb is rebuilt from the URL segments. On a product page it deliberately collapses to the leaf: <b>Home › Tür › product</b>.</p></div>
+      <div class="card"><div class="k">Filters</div><div class="v">Appliance · brand · type number · part category</div><p class="small" style="margin-top:1.2mm">Plus price, availability and condition (original / aftermarket / refurbished). The type-number picker on a brand page is the narrowest filter.</p></div>
+    </div>
+    <div class="cols" style="margin-top:2.6mm">
+      <div class="card warm"><div class="k">One product, many listings</div><div class="v">Bosch 00704286 — washing-machine door</div><p class="small" style="margin-top:1.2mm">One classification path (Mechanisch › Gehäuseteil › Fenster › Tür). Device brands Balay, Bosch, Profilo and Siemens. Appliance type Waschmaschine. <b>1,802 compatible models.</b> It appears on dozens of appliance × brand × part pages without being copied into 1,802 categories.</p></div>
+      <div class="card"><div class="k">Why this matters commercially</div><div class="v">One canonical product, many qualified entrances</div><p class="small" style="margin-top:1.2mm">Price and stock are updated once. There is no duplicate content. The generated landing pages carry the SEO, while the product page stays the source of truth for the customer and for Google.</p></div>
+    </div>
+  </div>
+
+  <div class="foot"><span><b>Ersatzteilstore</b> · FixPart category analysis · Final result</span><span>Page 1 / 2</span></div>
+</div>
+
+<!-- PAGE 2 -->
+<div class="page">
+  <div class="section" style="margin-top:0">
+    <div class="section-head"><span class="n">03</span><h2>Comparison with the three API shops</h2></div>
+    <table>
+      <thead><tr><th style="width:18%">Shop</th><th style="width:40%">Navigation</th><th style="width:10%">Depth</th><th>Own taxonomy / editorial layer</th></tr></thead>
+      <tbody>
+        <tr><td><b>ersatzteilblitz.de</b></td><td>Gerätegruppen A–Z + Artikelgruppen A–Z; inquiries deep-link to shop.euras.com</td><td>2</td><td><span class="badge no">none</span> supplier dimensions only</td></tr>
+        <tr><td><b>wildbihler-shop.de</b></td><td>Hersteller A–Z + Geräte A–Z; brand × device treated as separate “manufacturers” (e.g. AEG-DAMPFBÜGELEISEN)</td><td>2–3</td><td><span class="badge no">none</span> brand and device stay raw</td></tr>
+        <tr><td><b>ersatzteile-24.com</b></td><td>Brand index, brand → device model lists, part pages; a repair assistant at /shop.php</td><td>3</td><td><span class="badge no">none</span> no renamed groups or part taxonomy</td></tr>
+        <tr class="hl"><td><b>fixpart.de</b></td><td>105 appliance groups → 1,511 brands → 375 part categories → type number; separate A–Z part index</td><td>3 + 5</td><td><span class="badge yes">yes</span> renamed groups, part categories, classification, SEO landings, fit guarantee</td></tr>
+      </tbody>
+    </table>
+    <div class="cols" style="margin-top:2.2mm">
+      <p class="small"><b>Identical in all four:</b> part brand, device brand, device type, model / type number, article number, description and compatibility all come from the same supplier dimensions. The underlying articles are largely the same.</p>
+      <p class="small"><b>The difference is editorial:</b> FixPart turns those dimensions into a shop. The other three remain databases — even when they sell the same part. The API provides the facts; the taxonomy is the differentiator.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-head"><span class="n">04</span><h2>What the API gives us — and what we must add</h2></div>
+    <div class="cols">
+      <div>
+        <div class="eyebrow" style="color:#23733A">Provided directly by the wholesaler</div>
+        <ul class="clean ticks" style="margin-top:1.6mm">
+          <li>Article number, MPN and description</li>
+          <li>Supplier part group / part type in supplier wording</li>
+          <li>Device brand(s), device type(s), model / type numbers</li>
+          <li>Compatibility list — the most valuable field</li>
+          <li>Price and stock</li>
+        </ul>
+      </div>
+      <div>
+        <div class="eyebrow" style="color:#B84E12">What we must add (the moat)</div>
+        <ul class="clean plus" style="margin-top:1.6mm">
+          <li>105 normalised appliance groups (one name per device type)</li>
+          <li>375 part categories + the five-level classification</li>
+          <li>Aliases and synonyms: supplier spelling → our category</li>
+          <li>SEO copy, landing pages, breadcrumbs and sitemaps</li>
+          <li>Fit guarantee and translations for DE / ES / IT</li>
+        </ul>
+      </div>
+    </div>
+    <p class="small" style="margin-top:1.4mm;border-left:0.9mm solid var(--accent);background:#FFF8F3;padding:1.8mm 2.4mm;border-radius:0 1.4mm 1.4mm 0"><b>Avoid the trap of the API shops:</b> never model “AEG-Waschmaschine” as a category. Brand and device are separate dimensions, connected to products through compatibility.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-head"><span class="n">05</span><h2>How we would rebuild it</h2></div>
+    <div class="steps">
+      <div class="step"><div class="n">1</div><h3>PostgreSQL schema</h3><p><b>categories</b> (parent_id + materialised path), <b>brands</b>, <b>models</b>, <b>products</b>, <b>product_model</b> compatibility, <b>seo_landings</b>. The tree is small (~500 rows); compatibility can reach millions.</p></div>
+      <div class="step"><div class="n">2</div><h3>Import pipeline</h3><p>Stage the raw feed (JSON + hash) → normalise via category aliases → upsert products with one primary category → attach compatibility rows → queue reindex. Nightly full import, idempotent.</p></div>
+      <div class="step"><div class="n">3</div><h3>Meilisearch</h3><p>One <b>products</b> index: flat <b>category_ids</b>, <b>brand</b>, <b>appliance_types</b>, <b>condition</b>, <b>price</b>, <b>in_stock</b> as filterable facets. A separate <b>models</b> index powers “find by type number”.</p></div>
+      <div class="step"><div class="n">4</div><h3>Storefront</h3><p>Tree and breadcrumbs from PostgreSQL; filters and counts from Meilisearch. Generate appliance × brand × part pages, but publish only pages with at least three products — otherwise <b>noindex</b>.</p></div>
+    </div>
+    <p class="small" style="margin-top:1.6mm">Technical detail and working code: migration, importer, indexer and Meilisearch settings are in the separate code archive.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-head"><span class="n">06</span><h2>Indicative plan and the decisions we need</h2></div>
+    <div class="cols" style="gap:6mm">
+      <div>
+        <div class="phase"><div class="when">Weeks 1–3</div><div class="what"><b>Taxonomy + import</b><p>105 appliances, 375 part categories, aliases, nightly import, product &amp; compatibility tables.</p></div></div>
+        <div class="phase"><div class="when">Weeks 4–6</div><div class="what"><b>Navigation + search</b><p>Appliance → brand → part pages, Meilisearch facets, type-number finder, breadcrumbs.</p></div></div>
+        <div class="phase"><div class="when">Weeks 7–10</div><div class="what"><b>SEO landings</b><p>Generated pages, sitemaps, internal linking, thin-content guard.</p></div></div>
+        <div class="phase"><div class="when">Ongoing</div><div class="what"><b>Expansion</b><p>DE → ES / IT, synonym tuning, zero-result monitoring, price/stock freshness.</p></div></div>
+      </div>
+      <div>
+        <div class="card warm"><div class="k">Open questions &amp; assumptions</div>
+          <ul class="clean" style="margin-top:1.4mm">
+            <li><b>Wholesaler identity.</b> Assumed EURAS-type feed: ersatzteilblitz deep-links to shop.euras.com. Contract and field list to confirm.</li>
+            <li><b>Product-group path.</b> If the feed contains one, map it 1:1. If not, the 375-node list must be curated.</li>
+            <li><b>5,000 vs 375.</b> The gap is classification leaves and generated combinations, not 5,000 public index pages.</li>
+            <li><b>Brand coverage.</b> 1,511 captured vs 2,000+ claimed; some brands are probably not linked in the A–Z directory.</li>
+            <li><b>Legal.</b> Build from our own feed and editorial work — not from scraped FixPart content.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section" style="margin-top:3mm;border-top:0.35mm solid var(--line);padding-top:2mm">
+    <p class="small"><b>Deliverables:</b> this 2-page result · presentation (PDF) · full category tree as CSV and JSON · separate code archive with Laravel migration, importer, Meilisearch indexer, settings and the captured research data. <b>Every number in this document is reproducible from the data files.</b></p>
+  </div>
+
+  <div class="foot"><span><b>Ersatzteilstore</b> · FixPart category analysis · Final result</span><span>Page 2 / 2</span></div>
+</div>
+
+</body>
+</html>
