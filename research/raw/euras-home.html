@@ -1,0 +1,382 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE">
+<META HTTP-EQUIV="EXPIRES" CONTENT="Mon, 22 Jul 2002 11:12:01 GMT">
+ <link rel="shortcut icon" type="image/png" href="/pics/eis/neweis/favicon.png">
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" TYPE="text/css" href="/euras/EIS/style.css">
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+<meta http-equiv="Content-Language" content="">
+<title>EURAS Repair Tips databases - the technicians community</title>
+<link rel="stylesheet" TYPE="text/css" href="/lib/skeleton.css">
+<link rel="stylesheet" href="/jsinc/bootstrap/bootstrap-3.4.1-dist/css/bootstrap.min.css"><link rel="stylesheet" TYPE="text/css" href="/lib/jquery.cookiebar.css">
+<link rel="stylesheet" TYPE="text/css" href="/euras/EIS2/css/eis.css">
+
+<!--[if lt IE 9]>
+		<script src='http://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js'></script>
+		<script src='http://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js'></script>
+<![endif]-->
+
+
+  <!-- Mobile Specific Metas -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<script type="text/javascript" src="/jsinc/jquery/jquery-3.7.1.min.js"></script>
+<script type="text/javascript" src="/jsinc/jquery/jquery-migrate-3.5.0.js"></script>
+<script src="/lib/jquery.cookiebar.js"></script>
+<script type="text/javascript" src="/jsinc/bootstrap/bootstrap-3.4.1-dist/js/bootstrap.min.js"></script>   
+<meta name="google-site-verification" content="tnVHaGxtPQyROLORi_P5hgqC9uqgFkznC1izF_zjiUo" />
+</head>
+<body bgcolor="#FFFFFF" link="#800000" vlink="#800000" alink="#FF0000">	
+	<br><br><br>
+	<div class='container'>
+	<!-- header -->
+	<div class="row">
+	    <div align="center"> 
+		    <a href='#' id='logo'><img src="/pics/eis/neweis/logonotext.png" alt="EURAS" width="50%"/></a>
+	   </div>
+   
+<form name="cform" method="POST">
+  <input type=hidden value="1" name="clear" id="clear">
+</form>		
+<div class='header_text' align="center"> Your Technicians Community</div>
+<div id='container' style="padding:25px;">
+<br><br>
+<div class="row">
+Welcome to EURAS, the modern information system for professional service technicians: know-how community and repair databases for Consumer Electronics and Household appliances. 
+<br><br>
+  <div class=" center-block">
+		<ul class="nav nav-pills nav-justified" role="tablist">
+	  		<li role="presentation">
+	  			<input type="button" class="button-primary bootstraplike col-3-md col-12-sm" onclick="javascript:window.location.href='https://www.euras.com/login/checkin.php'" data-toggle="tooltip" title="direct login" value="Login">
+	  		</li>
+	  		<li role="presentation">
+				<div class="dropdown col-3-md">
+					  <input type="button"  onchange="switchme(this)" name="language" aria-haspopup="true" aria-expanded="true" id='languages' role="button" data-toggle="dropdown" class="dropdown-toggle" value="Change Language">
+					  <ul class="dropdown-menu scrollable-menu" id='noline' aria-labelledby="language" >
+						<li><a href='javascript:switchme("ALB")'>Albanian</a></li>
+<li><a href='javascript:switchme("BOS")'>Bosanski </a></li>
+<li><a href='javascript:switchme("CRO")'>Hrvatski </a></li>
+<li><a href='javascript:switchme("CZE")'>&#268;esky</a></li>
+<li><a href='javascript:switchme("ENG")'>English</a></li>
+<li><a href='javascript:switchme("FRA")'>Fran&#231;ais</a></li>
+<li><a href='javascript:switchme("GER")'>Deutsch</a></li>
+<li><a href='javascript:switchme("GRE")'>&#917;&#955;&#955;&#951;&#957;&#953;&#954;&#940;</a></li>
+<li><a href='javascript:switchme("HOL")'>Nederlands</a></li>
+<li><a href='javascript:switchme("HUN")'>Magyar </a></li>
+<li><a href='javascript:switchme("ITA")'>Italiano</a></li>
+<li><a href='javascript:switchme("LAT")'>Latvie&#353;u </a></li>
+<li><a href='javascript:switchme("LIT")'>Lietuvi&#371;</a></li>
+<li><a href='javascript:switchme("NOR")'>Norsk</a></li>
+<li><a href='javascript:switchme("POL")'>Polski</a></li>
+<li><a href='javascript:switchme("POR")'>Portuguese</a></li>
+<li><a href='javascript:switchme("ROM")'>Rom&#226;n&#259;</a></li>
+<li><a href='javascript:switchme("SER")'>&#1057;&#1088;&#1087;&#1089;&#1082;&#1080;
+/ Srpski</a></li>
+<li><a href='javascript:switchme("SLO")'>Sloven&#269;ina</a></li>
+<li><a href='javascript:switchme("SPA")'>Espa&#241;ol</a></li>
+			  		</ul>
+	  			</div>
+	  		</li> 
+	  		<li role="presentation">
+  				<input type="button"  class="col-3-md mybutton" onclick="javascript:Remote('https://www.euras.com/euras/EIS2/faq/showcat?categoryid=5&calledfrom=login&language=ENG');" value="FAQ">
+  			</li>
+  			<li role="presentation">
+  				<input type="button"  class="col-3-md mybutton" onclick="javascript:Remote('https://www.euras.com/euras/EIS2/feedback?calledfrom=login&language=ENG');" data-toggle="tooltip" data-placement="left" title="Write us, we will contact you as soon as possible!" value="feedback/questions">
+  			</li>
+  			<li role="presentation">
+  				<input type="button" class="col-3-md mybutton" onclick="javascript:Remote('https://www.euras.com/euras/EIS2/system/impressum?calledfrom=login&language=ENG');" data-toggle="tooltip" data-placement="left" title="Company information" value="Company Legal Notice">
+  			</li>
+  			<li role="presentation">
+  				<input type="button" class="col-3-md mybutton" onclick="javascript:Remote('https://www.euras.com/euras/EIS2/system/privacy?calledfrom=login&lang=ENG');" data-toggle="tooltip" data-placement="left" value="Privacy Report">
+  			</li>
+  			
+		</ul>
+	</div>				
+<hr>
+</div>
+
+<div class="row">
+  	<div class="three columns"> 
+  		<div class='hidden-xs'><img src="/pics/eis/ASWOmanEURAS_Infotafel3.png" alt="ASWOmanEURAS_Infotafel3" width="100%" align="middle" /></div>
+  	</div>  	
+  	<div class="eight columns">
+  		
+  		<form action="/login/home2.php" name="myform" method="POST">
+  		<input type=hidden value="ok" name="sent">
+		<input type=hidden value="ENG" name="language">
+        <input type='hidden' value="" name="countryname">
+		Do you want to log in to the EURAS System now? Please select your country first:		<br><br><br>
+				<input type='hidden' value="" name="cc">
+		<!-- country selection layout -->
+		<div class="dropdown">
+			 <a class="dropdown-toggle button button-primary bootstraplike" name="cc" aria-haspopup="true" aria-expanded="true" id='cc' role="button" data-toggle="dropdown">Please select a country<span class="caret"></span></a>                        
+			 <ul class="dropdown-menu scrollable-menu" id='countries_list' aria-labelledby="cc" >
+			 <li id='quick_search'>	
+			 	<div class="input-group">
+			  		<span class="input-group-addon" id="ico_search"><span class="glyphicon glyphicon-search"></span></span>
+			  		<input type="text" class="form-control" placeholder="Quick search" aria-describedby="ico_search" id="txt_search">
+				</div>
+			</li>
+			<li><a href='javascript:changeCountry("AL","Albania");'>Albania</a></li>
+<li><a href='javascript:changeCountry("DZ","Algeria");'>Algeria</a></li>
+<li><a href='javascript:changeCountry("AD","Andorra");'>Andorra</a></li>
+<li><a href='javascript:changeCountry("AO","Angola");'>Angola</a></li>
+<li><a href='javascript:changeCountry("AR","Argentina");'>Argentina</a></li>
+<li><a href='javascript:changeCountry("AM","Armenia");'>Armenia</a></li>
+<li><a href='javascript:changeCountry("AW","Aruba");'>Aruba</a></li>
+<li><a href='javascript:changeCountry("AU","Australia");'>Australia</a></li>
+<li><a href='javascript:changeCountry("AT","Austria");'>Austria</a></li>
+<li><a href='javascript:changeCountry("AZ","Azerbaijan");'>Azerbaijan</a></li>
+<li><a href='javascript:changeCountry("BY","Belarus");'>Belarus</a></li>
+<li><a href='javascript:changeCountry("BE","Belgium");'>Belgium</a></li>
+<li><a href='javascript:changeCountry("BA","Bosnia and Herzegovina");'>Bosnia and Herzegovina</a></li>
+<li><a href='javascript:changeCountry("BR","Brazil");'>Brazil</a></li>
+<li><a href='javascript:changeCountry("BG","Bulgaria");'>Bulgaria</a></li>
+<li><a href='javascript:changeCountry("CA","Canada");'>Canada</a></li>
+<li><a href='javascript:changeCountry("CV","Cape Verde");'>Cape Verde</a></li>
+<li><a href='javascript:changeCountry("CN","China");'>China</a></li>
+<li><a href='javascript:changeCountry("CO","Colombia");'>Colombia</a></li>
+<li><a href='javascript:changeCountry("CR","Costa Rica");'>Costa Rica</a></li>
+<li><a href='javascript:changeCountry("HR","Croatia");'>Croatia</a></li>
+<li><a href='javascript:changeCountry("CY","Cyprus");'>Cyprus</a></li>
+<li><a href='javascript:changeCountry("CZ","Czech Republic");'>Czech Republic</a></li>
+<li><a href='javascript:changeCountry("DK","Denmark");'>Denmark</a></li>
+<li><a href='javascript:changeCountry("EE","Estonia");'>Estonia</a></li>
+<li><a href='javascript:changeCountry("FO","Faroe Islands");'>Faroe Islands</a></li>
+<li><a href='javascript:changeCountry("FI","Finland");'>Finland</a></li>
+<li><a href='javascript:changeCountry("FR","France");'>France</a></li>
+<li><a href='javascript:changeCountry("GF","French Guiana");'>French Guiana</a></li>
+<li><a href='javascript:changeCountry("PF","French Polynesia");'>French Polynesia</a></li>
+<li><a href='javascript:changeCountry("TF","French Southern Territories");'>French Southern Territories</a></li>
+<li><a href='javascript:changeCountry("GE","Georgia");'>Georgia</a></li>
+<li><a href='javascript:changeCountry("DE","Germany");'>Germany</a></li>
+<li><a href='javascript:changeCountry("GI","Gibraltar");'>Gibraltar</a></li>
+<li><a href='javascript:changeCountry("GR","Greece");'>Greece</a></li>
+<li><a href='javascript:changeCountry("GL","Greenland");'>Greenland</a></li>
+<li><a href='javascript:changeCountry("GP","Guadeloupe");'>Guadeloupe</a></li>
+<li><a href='javascript:changeCountry("GY","Guyana");'>Guyana</a></li>
+<li><a href='javascript:changeCountry("HU","Hungary");'>Hungary</a></li>
+<li><a href='javascript:changeCountry("IS","Iceland");'>Iceland</a></li>
+<li><a href='javascript:changeCountry("IE","Ireland");'>Ireland</a></li>
+<li><a href='javascript:changeCountry("IL","Israel");'>Israel</a></li>
+<li><a href='javascript:changeCountry("IT","Italy ");'>Italy </a></li>
+<li><a href='javascript:changeCountry("CI","Ivory Coast");'>Ivory Coast</a></li>
+<li><a href='javascript:changeCountry("XK","Kosovo");'>Kosovo</a></li>
+<li><a href='javascript:changeCountry("LV","Latvia");'>Latvia</a></li>
+<li><a href='javascript:changeCountry("LI","Liechtenstein");'>Liechtenstein</a></li>
+<li><a href='javascript:changeCountry("LT","Lithuania");'>Lithuania</a></li>
+<li><a href='javascript:changeCountry("LU","Luxembourg");'>Luxembourg</a></li>
+<li><a href='javascript:changeCountry("MK","Macedonia");'>Macedonia</a></li>
+<li><a href='javascript:changeCountry("MT","Malta");'>Malta</a></li>
+<li><a href='javascript:changeCountry("MQ","Martinique");'>Martinique</a></li>
+<li><a href='javascript:changeCountry("YT","Mayotte");'>Mayotte</a></li>
+<li><a href='javascript:changeCountry("MD","Moldova");'>Moldova</a></li>
+<li><a href='javascript:changeCountry("MC","Monaco");'>Monaco</a></li>
+<li><a href='javascript:changeCountry("ME","Montenegro");'>Montenegro</a></li>
+<li><a href='javascript:changeCountry("NL","Netherlands");'>Netherlands</a></li>
+<li><a href='javascript:changeCountry("AN","Netherlands Antilles");'>Netherlands Antilles</a></li>
+<li><a href='javascript:changeCountry("NC","New Caledonia");'>New Caledonia</a></li>
+<li><a href='javascript:changeCountry("NO","Norway");'>Norway</a></li>
+<li><a href='javascript:changeCountry("PL","Poland");'>Poland</a></li>
+<li><a href='javascript:changeCountry("PT","Portugal");'>Portugal</a></li>
+<li><a href='javascript:changeCountry("RE","Reunion");'>Re'union</a></li>
+<li><a href='javascript:changeCountry("RO","Romania");'>Romania</a></li>
+<li><a href='javascript:changeCountry("PM","Saint Pierre and Miquelon");'>Saint Pierre and Miquelon</a></li>
+<li><a href='javascript:changeCountry("VC","Saint Vincent and the Grenadines");'>Saint Vincent and the Grenadines</a></li>
+<li><a href='javascript:changeCountry("BL","Saint-Barthélemy");'>Saint-Barthélemy</a></li>
+<li><a href='javascript:changeCountry("WS","Samoa (Independent State of)");'>Samoa (Independent State of)</a></li>
+<li><a href='javascript:changeCountry("XS","Serbia");'>Serbia</a></li>
+<li><a href='javascript:changeCountry("SK","Slovakia");'>Slovakia</a></li>
+<li><a href='javascript:changeCountry("SI","Slovenia");'>Slovenia</a></li>
+<li><a href='javascript:changeCountry("ZA","South Africa");'>South Africa</a></li>
+<li><a href='javascript:changeCountry("ES","Spain");'>Spain</a></li>
+<li><a href='javascript:changeCountry("SJ","Svalbard and Jan Mayen Islands");'>Svalbard and Jan Mayen Islands</a></li>
+<li><a href='javascript:changeCountry("SE","Sweden");'>Sweden</a></li>
+<li><a href='javascript:changeCountry("CH","Switzerland");'>Switzerland</a></li>
+<li><a href='javascript:changeCountry("TZ","Tanzania");'>Tanzania</a></li>
+<li><a href='javascript:changeCountry("TH","Thailand");'>Thailand</a></li>
+<li><a href='javascript:changeCountry("US","USA");'>USA</a></li>
+<li><a href='javascript:changeCountry("UG","Uganda");'>Uganda</a></li>
+<li><a href='javascript:changeCountry("UA","Ukraine");'>Ukraine</a></li>
+<li><a href='javascript:changeCountry("GB","United Kingdom");'>United Kingdom</a></li>
+<li><a href='javascript:changeCountry("UY","Uruguay");'>Uruguay</a></li>
+<li><a href='javascript:changeCountry("UZ","Uzbekistan");'>Uzbekistan</a></li>
+<li><a href='javascript:changeCountry("VU","Vanuatu (Republic of, formerly New Hebrides)");'>Vanuatu (Republic of, formerly New Hebrides)</a></li>
+<li><a href='javascript:changeCountry("VA","Vatican City");'>Vatican City</a></li>
+<li><a href='javascript:changeCountry("VE","Venezuela");'>Venezuela</a></li>
+<li><a href='javascript:changeCountry("VN","Vietnam");'>Vietnam</a></li>
+<li><a href='javascript:changeCountry("VG","Virgin Islands (British)");'>Virgin Islands (British)</a></li>
+<li><a href='javascript:changeCountry("VI","Virgin Islands (U.S.)");'>Virgin Islands (U.S.)</a></li>
+<li><a href='javascript:changeCountry("WF","Wallis and Futuna Islands");'>Wallis and Futuna Islands</a></li>
+<li><a href='javascript:changeCountry("YE","Yemen");'>Yemen</a></li>
+<li><a href='javascript:changeCountry("ZR","Zaire");'>Zaire</a></li>
+<li><a href='javascript:changeCountry("ZM","Zambia");'>Zambia</a></li>
+<li><a href='javascript:changeCountry("ZW","Zimbabwe");'>Zimbabwe</a></li>
+			</ul>
+		</div>
+			    	
+		
+		<br><br><br>
+		<input type="button" onclick="sendme();" value="Continue"> <i><!--(only Firefox and Internet Explorer supported)--></i>
+				<!--
+		-->
+
+	</form>
+	</div>  
+</div>  
+<!--language selection layout 
+		<div style="padding-left:5px">
+			<div class="dropdown">
+			  <a class="dropdown-toggle button button-primary bootstraplike" onchange="switchme(this)" name="language" aria-haspopup="true" aria-expanded="true" id='languages' role="button" data-toggle="dropdown"> Change Language<span class="caret"></span></a>
+			  <ul class="dropdown-menu" id='noline' aria-labelledby="language" >
+				<li><a href='javascript:switchme("ALB")'>Albanian</a></li>
+<li><a href='javascript:switchme("BOS")'>Bosanski </a></li>
+<li><a href='javascript:switchme("CRO")'>Hrvatski </a></li>
+<li><a href='javascript:switchme("CZE")'>&#268;esky</a></li>
+<li><a href='javascript:switchme("ENG")'>English</a></li>
+<li><a href='javascript:switchme("FRA")'>Fran&#231;ais</a></li>
+<li><a href='javascript:switchme("GER")'>Deutsch</a></li>
+<li><a href='javascript:switchme("GRE")'>&#917;&#955;&#955;&#951;&#957;&#953;&#954;&#940;</a></li>
+<li><a href='javascript:switchme("HOL")'>Nederlands</a></li>
+<li><a href='javascript:switchme("HUN")'>Magyar </a></li>
+<li><a href='javascript:switchme("ITA")'>Italiano</a></li>
+<li><a href='javascript:switchme("LAT")'>Latvie&#353;u </a></li>
+<li><a href='javascript:switchme("LIT")'>Lietuvi&#371;</a></li>
+<li><a href='javascript:switchme("NOR")'>Norsk</a></li>
+<li><a href='javascript:switchme("POL")'>Polski</a></li>
+<li><a href='javascript:switchme("POR")'>Portuguese</a></li>
+<li><a href='javascript:switchme("ROM")'>Rom&#226;n&#259;</a></li>
+<li><a href='javascript:switchme("SER")'>&#1057;&#1088;&#1087;&#1089;&#1082;&#1080;
+/ Srpski</a></li>
+<li><a href='javascript:switchme("SLO")'>Sloven&#269;ina</a></li>
+<li><a href='javascript:switchme("SPA")'>Espa&#241;ol</a></li>
+	  			</ul>
+	  		</div>
+	  	</div>
+	  	-->
+	  	<!-- language selection end -->
+	  	
+<hr>
+
+<br><br><br>
+</div>
+
+
+
+
+<!--
+		
+<div class="list-group"  style="padding-right:30%">
+  <a href="http://www.euras.com/login" class="list-group-item active" >
+    <h4 class="list-group-item-heading mystyle">Login</h4>
+    <p class="list-group-item-text">Sie sind schon EURAS Kunde und möchten direkt ins System ?</p>
+  </a>
+   <a  class="list-group-item active" href="javascript:Remote('http://www.euras.com/euras/EIS/support/feedback_start.php?language=ENG');">
+    <h4 class="list-group-item-heading mystyle">feedback / questions</h4>
+    <p class="list-group-item-text">schreiben Sie uns, wir melden uns so schnell wie möglich bei Ihnen !</p>
+  </a>
+
+  <a class="list-group-item active" href="javascript:Remote('http://www.euras.com/euras/info/impressum.php?language=ENG');">
+    <h4 class="list-group-item-heading mystyle">Company Legal Notice</h4>
+    <p class="list-group-item-text">Company information</p>
+  </a>
+  
+       
+</div>
+
+</div>
+
+-->
+
+<script language="javascript">			
+function sendme()
+{
+		if(document.myform.cc.value!='')
+	{
+			document.myform.submit();
+			return true;
+	}
+		alert("Please select your country!");
+}
+
+function switchme(lang)
+{
+	$.post('/euras/EIS/libs/ajax_indexlanguage.php',
+	{language:lang},
+	function(response){
+					window.location.href='https://www.euras.com?cc='+document.myform.cc.value;
+			});
+}
+
+
+function checkcountry(element)
+{
+	$.post('ajax_checkcountry.php',
+		{country:element.value},
+		function(result)
+		{
+			if(result == 1)
+				$('#login_button').show();
+			else
+				$('#login_button').hide();
+			
+		}
+	);
+}
+
+function changeCountry(country, name)
+{
+	document.myform.cc.value = country;
+	document.myform.countryname.value = name;
+	window.location.href='https://www.euras.com?cc='+document.myform.cc.value;
+}
+
+
+
+function Remote(ThisUrl)
+{
+  var MainWindow = this.window;
+  popupWin = window.open(ThisUrl,'openWindow','Scrollbars=yes,width=750,height=600');
+   
+}  
+
+function highlight()
+{
+	document.getElementById('highlight').style.background='#FFFF00';
+	window.location.href = "#zugang";
+}
+		
+$(document).ready(function(){
+     	 $.cookieBar({
+		 	acceptText:'OK',
+		 	message: 'This website uses only session cookies, their use are necessary for the full function. More Details: <a href="https://www.euras.com/euras/EIS2/system/privacy?noframe=1&lang=ENG" target="Hauptseite">Privacy Report</a>'
+		 	});	
+		$(".dropdown-menu li a").click(function(){
+	var selText = $(this).text();
+	$(this).parents('.dropdown').find('.dropdown-toggle').html(selText+' <span class="caret"></span>');
+	});
+	
+	$('#logo').click(function(){
+		document.cform.clear.value = 1;
+		document.cform.submit();	
+	});
+});
+
+$(function(){
+	$('#txt_search').keyup( function() {
+		jQuery.expr[':'].Contains = function(a, i, m) {
+  			return jQuery(a).text().toUpperCase()
+      		.indexOf(m[3].toUpperCase()) >= 0;
+		};
+		
+        var matches = $( 'ul#countries_list' ).find( 'li:Contains('+ $( this ).val() +'), #quick_search' );
+        $( 'li', 'ul#countries_list' ).not( matches ).slideUp();
+        matches.slideDown();    
+    });
+});
+</script>	  
+</body>
+</html>

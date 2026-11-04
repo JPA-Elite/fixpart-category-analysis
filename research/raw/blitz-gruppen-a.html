@@ -1,0 +1,666 @@
+ 
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="language" content="de" />
+
+	
+<meta http-equiv="content-language" content="de-de">
+<title> Gruppen a</title>
+<meta name= "robots" content= "index">
+<meta name= "robots" content= "follow">
+<META NAME="KEYWORDS" CONTENT="Ersatzteile,Ersatzteil,Versand">
+<meta name="page-topic" content="Ersatzteile, Ersatzteil-Versand, für TV-Hifi-Video und Hausger&auml;te ">    <meta name="format-detection" content="telephone=no">
+	<meta charset="utf-8" />
+      <link rel="stylesheet" type="text/css" href="/css/default.css" media="all" />
+
+	
+	
+
+		<script src="/jquery-3.6.0.min.js"></script>	
+ <!--- Pd zeuchs -->
+    
+<script language="JavaScript" type="text/javascript" src="/blitz.js"></script>
+    <script type="text/javascript">
+function NaviFenster () {
+  Navigation = window.open("info.php", "Navigation", "height=200,width=300,resizeable=yes");
+  Navigation.focus();
+}
+</script>
+<script type="text/javascript">
+//
+$(document).ready(function() { $('#suchbg').focus(); });
+
+
+var lim ="";
+function pageScroll() {
+	
+
+if (lim !="hu") 
+{	
+// alert(lim);
+
+    	window.scrollBy(0,140); // horizontal and vertical scroll 
+	
+
+		lim="hu";
+}
+
+}
+</script>
+    
+	
+	
+     <script
+     type="text/javascript"> 
+	 
+	 //setup before functions
+var typingTimer;                //timer identifier
+var doneTypingInterval = 500;  //time in ms, 5 second for example
+function timer_start()
+{
+    clearTimeout(typingTimer);
+    typingTimer = setTimeout(doneTyping, doneTypingInterval);
+	//alert ("timerstart down");
+};
+
+function timer_reset()
+{
+    clearTimeout(typingTimer);
+	//alert ("timerreset up");
+};
+
+//user is "finished typing," do something
+function doneTyping () {
+   
+$.ajax({
+            type: "POST",
+            url: "/sucheneu/ajax.php",
+   			data:"modell=" + $("#suchbg").val(),
+			cache: false,
+            success: function(msg)
+            {
+               
+                $("#suggestdiv").html(msg);
+            }
+        });
+}
+
+
+//on keyup, start the countdown
+$('#suchbg').keyup(function(){
+    clearTimeout(typingTimer);
+    typingTimer = setTimeout(doneTyping, doneTypingInterval);
+	
+});
+
+function artikelsuche(xyz) { 
+
+ $.ajax({
+            type: "POST",
+            url: "/sucheneu/ajax.php",
+   			data:"modell=" + $("#suchbg").val(),
+			cache: false,
+            success: function(msg)
+            {
+               
+                $("#suggestdiv").html(msg);
+            }
+        });
+}
+
+     
+     </script>
+    
+    
+    
+
+   
+ <!-- pd -->
+<script>
+  var _paq = window._paq = window._paq || [];
+  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+_paq.push(['disableCookies']); 
+ _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//ersatzteilblitz.de/mmm/matomo/";
+    _paq.push(['setTrackerUrl', u+'matomo.php']);
+    _paq.push(['setSiteId', '1']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<!-- End pd Code -->	
+
+
+   <style>
+     #drop-area {
+    border: 2px dashed #ccc;
+    border-radius: 20px;
+    padding: 20px;
+    text-align: center;
+    overflow: hidden;
+    background-color: #f9f9f9;
+    min-height: 100px; /* Mindesthöhe für die Drop-Area */
+    position: relative; /* Positionierung relativ für das Z-Index-Management */
+}
+	   
+	   #rotate-btn {
+    z-index: 20; /* Erhöhen des Z-Index, um den Button über der Drop-Area zu platzieren */
+    position: relative; /* Positionierung relativ, um Z-Index wirksam zu machen */
+    display: none; /* Buttons anfangs verbergen */
+}
+	   
+        #rotate-btn, #submit-btn, #knipps {
+            display: none; /* Buttons anfangs verbergen */
+        }
+    
+
+/* Animation */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.loader {
+  border: 6px solid #f3f3f3;
+  border-top: 6px solid #3498db;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -25px;
+  margin-left: -25px;
+  display: none;
+	 z-index: 20;
+}
+
+input[type="file"] {
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+	   
+.preview-image {
+    width: 100%; /* Setzt die Breite des Bildes auf 100% der Dropzone */
+    height: auto; /* Passt die Höhe des Bildes automatisch an, um das Seitenverhältnis zu erhalten */
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    z-index: 10;
+    object-fit: contain; /* Stellt sicher, dass das gesamte Bild sichtbar ist, behält aber das Seitenverhältnis bei */
+}
+
+
+#submit-btn {
+  margin-top: 10px;
+  
+	
+	.image-upload-form	{
+		
+		 max-width: 100%;
+  max-height: 100%;
+  position: absolute;
+	}
+	
+	
+
+</style>
+	
+ <style>
+        #wako {
+            display: none; /* Sichtbar wenn die Bedingung erfüllt ist */
+        }
+    </style>
+
+</head>
+
+<body > 
+
+
+
+  
+    <div id="pagewidth" class="center">
+	<div id="content">
+       
+     
+                          
+<div class="columns">
+  <div class="half">
+	  
+	   <p ><a href="/index.php">Startseite</a>   |  <a href="/shop/shop2.php?art=hilfeneu">Hilfe</a>   | <a href="javascript:Fe=window.open('https://shop.euras.com/anfrage_new2.php?&g7=84644N','garry','width=800,height=600,menubar=no,scrollbars,resizable',screenx=50);Fe.focus();"> Kontakt</a>   |   <a href="/agb.php">AGB</a>  |   <a href="/impressum.php">Impressum</a>
+                                <div class="/imgHolder fullWidth"><a href="/index.php"><img src="/img/logo.png" alt="ersatzteilBlitz® DAS ORIGINAL! Ersatzteile für Haushaltsgeräte und Elektronik " /></a>   
+	  
+	   <hr>22 Jahre Online-Ersatzteil-Vertrieb 2002-2024  
+									
+									
+ 
+			
+                       <a href="/shop/shop2.php?art=warenkorbanzeigen"><div id="wako" class="wkbox">
+						   Der Warenkorb ist leer. 
+                        
+              </div> </a>
+									
+	  </div>
+        
+         <h1 class="stil2">
+				  Ersatzteile und Zubeh&ouml;r                 </span></h1>
+				
+            
+        
+    
+               
+
+           <!--anfang 2 zu 1-->
+
+   		
+
+  
+        
+   	   		
+  </div>
+ <!--ende 2 zu 1-->
+	
+		 
+ 
+ <div  class="hundert">
+ 
+ 
+ 	<div class="siebzig">
+  
+ 	
+ 		<div class="fünfundneunzig">
+        
+           
+
+
+
+<div class="suche">
+  Ersatzteil jetzt finden!</span><br>
+           <div class="formRow">
+             
+             <form name="form1" method="get" action="/shop/shop.php" onSubmit="return check_form2()">
+       
+      <input class="inputajax" name="suchbg" id="suchbg" autocomplete="off"    onkeyup="timer_start(), pageScroll()" onkeydown "timer_reset()"   type="text"    size="20"  placeholder="Modell- oder Bestellnummer eingeben" >
+       <div id="suggestdiv" style="z-index:99"></div>
+      
+              <a href="/shop/shop2.php?art=hilfeneu" ><img class="imgleer" src="/img/hilfe.png"   alt="Hilfe Ersatzteilsuche" border="0"></a>
+             </form>
+               
+			   
+              
+    </div> <!--<div class="formRow"> -->
+            
+          </div>    
+		<style>
+      .drop-area {
+            border: 2px dashed #ccc;
+            padding: 10px;
+            text-align: center;
+            font-size: 12px; /* Kleinere Schriftgröße */
+            line-height: 1.5;
+            
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #preview {
+            margin-top: 10px;
+            max-width: 100%;
+            max-height: 300px;
+        }
+
+        .loader {
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid #3498db;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            animation: spin 2s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+
+    <form id="image-upload-form" method="post"  enctype="multipart/form-data" action="/vision/api.php">
+        <div class="drop-area" id="drop-area" > 
+			
+          <span>Ziehen Sie einfach ein Bild vom Typenschild in dieses Feld oder klicken Sie auf das Feld, um nach Dateien zu suchen. <br> Auf Mobilgeräten können Sie mit Ihrer Kamera das Bild direkt aufnehmen.</span>
+				
+            <input type="file" id="fileElem" name="image" accept="image/*" capture onchange="handleFiles(this.files)">
+
+
+            <div id="loader" class="loader" style="display: none;"></div>
+            <img id="preview" class="preview-image" style="display: none;">
+			<input type="hidden" name="si" value="9bdjbegiasn427ba6hikki7k91">
+        </div>
+		<div id="knipps">
+        <br>
+        <button style='background-color:#FBD603; border-radius: 10px;' type="button" id="rotate-btn" >Falls das Bild auf dem Kopf oder hochkant angezeigt wird, solange <b>hier</b> klicken bis es richtig angezeigt wird.</button>
+        <br><br>
+        <button type="submit" class="radio" id="submit-btn">Bild absenden</button>
+        <div id="progress-bar-container" style="display:none;">
+            <div id="progress-bar" style="width:0%; height: 20px; background-color: #4CAF50;"></div>
+        </div>
+    </form>
+    
+<br>Bitte beachten Sie die Beispiele für geeignete Bilder.<br>
+           <img width="98%" src="/vision/knipps.JPG"><!-- Inhalt des Divs "knipps" -->
+        </div>
+   <script>
+var rotation = 0; // Globale Variable für den Rotationswinkel
+
+// Funktionen zum Verbergen und Anzeigen des Loaders
+function showLoader() {
+    document.getElementById('loader').style.display = 'block';
+}
+
+function hideLoader() {
+    document.getElementById('loader').style.display = 'none';
+}
+
+// Funktion zum Anpassen der Drop-Area-Größe
+function adjustDropAreaSize(newSize) {
+    var dropArea = document.getElementById('drop-area');
+    dropArea.style.height = newSize + 'px'; // Höhe basierend auf der neuen Größe anpassen
+}
+
+// Funktion zum Anzeigen der Buttons
+function showButtons() {
+    var rotateBtn = document.getElementById('rotate-btn');
+    var submitBtn = document.getElementById('submit-btn');
+    rotateBtn.style.display = 'block';
+    submitBtn.style.display = 'block';
+}
+
+// Funktion zur Handhabung der hochgeladenen Dateien
+function handleFiles(files) {
+    var file = files[0];
+    if (!file) {
+        alert('Bitte wählen Sie ein Bild zum Hochladen aus.');
+        return;
+    }
+    showLoader();
+    cropImage(file, 10, function(croppedBlob) {
+        resizeImage(croppedBlob, 2016, 2016, function(resizedBlob) {
+            var preview = document.getElementById('preview');
+            preview.src = URL.createObjectURL(resizedBlob);
+            preview.style.display = 'block';
+            preview.onload = function() {
+                URL.revokeObjectURL(this.src);
+                adjustDropAreaSize(this.height); // Größe der Drop-Area anpassen
+                showButtons(); // Buttons anzeigen
+                document.getElementById('knipps').style.display = 'block'; // knipps anzeigen
+                hideLoader();
+            };
+            var dt = new DataTransfer();
+            dt.items.add(new File([resizedBlob], file.name, {type: 'image/jpeg'}));
+            document.getElementById('fileElem').files = dt.files;
+        });
+    });
+}
+
+// Funktion zum Zuschneiden des Bildes
+function cropImage(file, cropPixels, callback) {
+    var img = new Image();
+    img.onload = function() {
+        var canvas = document.createElement('canvas');
+        var ctx = canvas.getContext('2d');
+        var width = img.width - (2 * cropPixels);
+        var height = img.height - (2 * cropPixels);
+        canvas.width = width;
+        canvas.height = height;
+        ctx.drawImage(img, cropPixels, cropPixels, width, height, 0, 0, width, height);
+        canvas.toBlob(callback, 'image/jpeg', 0.92);
+    };
+    img.src = URL.createObjectURL(file);
+}
+
+// Funktion zum Ändern der Bildgröße
+function resizeImage(blob, maxWidth, maxHeight, callback) {
+    var img = new Image();
+    img.onload = function() {
+        var canvas = document.createElement('canvas');
+        var ctx = canvas.getContext('2d');
+        var scale = Math.min(maxWidth / img.width, maxHeight / img.height);
+        var width = img.width * scale;
+        var height = img.height * scale;
+        canvas.width = width;
+        canvas.height = height;
+        ctx.drawImage(img, 0, 0, width, height);
+        canvas.toBlob(callback, 'image/jpeg', 0.92);
+    };
+    img.src = URL.createObjectURL(blob);
+}
+
+// Funktion zum Drehen des Bildes
+document.getElementById('rotate-btn').addEventListener('click', function() {
+    var preview = document.getElementById('preview');
+    var currentImageFile = document.getElementById('fileElem').files[0];
+    if(currentImageFile) {
+        showLoader();
+        var canvas = document.createElement('canvas');
+        var ctx = canvas.getContext('2d');
+        var img = new Image();
+        img.onload = function() {
+            rotation = (rotation + 90) % 360;
+            canvas.width = rotation % 180 === 0 ? img.width : img.height;
+            canvas.height = rotation % 180 === 0 ? img.height : img.width;
+            ctx.translate(canvas.width / 2, canvas.height / 2);
+            ctx.rotate(rotation * Math.PI / 180);
+            ctx.drawImage(img, -img.width / 2, -img.height / 2);
+            ctx.resetTransform(); // Setzt die Transformationsmatrix zurück
+            canvas.toBlob(function(blob) {
+                var newImageFile = new File([blob], currentImageFile.name, {type: 'image/jpeg'});
+                var dt = new DataTransfer();
+                dt.items.add(newImageFile);
+                document.getElementById('fileElem').files = dt.files;
+                preview.src = URL.createObjectURL(blob);
+                preview.style.display = 'block';
+                var newDimension = Math.max(canvas.width, canvas.height); // Die größere Dimension ermitteln
+                adjustDropAreaSize(newDimension); // Die Drop-Area-Größe anpassen
+                hideLoader();
+            }, 'image/jpeg');
+        };
+        img.src = URL.createObjectURL(currentImageFile);
+    }
+});
+
+// Event Listener für das Absenden des Formulars
+document.getElementById('image-upload-form').addEventListener('submit', function(e) {
+    document.getElementById('progress-bar-container').style.display = 'block';
+    updateProgressBar();
+});
+
+// Funktion zum Aktualisieren des Fortschrittbalkens
+function updateProgressBar() {
+    var progressBar = document.getElementById('progress-bar');
+    var width = 0;
+    var interval = setInterval(function() {
+        if (width >= 100) {
+            clearInterval(interval);
+        } else {
+            width++;
+            progressBar.style.width = width + '%';
+        }
+    }, 500); // Aktualisiert alle 200 Millisekunden
+}
+</script>
+<script>
+    document.getElementById("toggle-button").addEventListener("click", function() {
+        var form = document.getElementById("image-upload-form");
+        if (form.style.display === "none") {
+            form.style.display = "block";
+            this.textContent = "Formular ausblenden";
+        } else {
+            form.style.display = "none";
+            this.textContent = "Formular anzeigen";
+        }
+    });
+</script>
+<p><span class="subHeading">
+	Willkommen beim ersatzteilBLITZ®<br>
+	Ersatzteil Schnellversand - Riesenauswahl - Komfortable Suchfunktion<br>
+	
+	</span>
+   <hr /> 
+
+<p><b>Nur noch 1. 2. 3. Schritte bis zum Ersatzteil!
+   <p >
+	   1. Typenschild finden<br />
+	   2. Modellnummer in das Suchfeld eingeben<br>
+	   3. Passende Ersatzteilliste anzeigen<br><br>
+	   
+	   <a href="/shop/shop2.php?art=hilfeneu">Genaue Anleitung</a>
+	   
+</p><br /></b><hr />
+	
+	<p><span class="subHeading">NEU! Typenschild fotografieren und das Bild hochladen.<br></span>
+Den Rest machen wir. Ihr Gerät wird erkannt und die passende Ersatzteilliste sofort angezeigt.<br>
+		
+<div align="center">
+
+<a href="/vision.php"  ><img  src="/vision/future1.jpg"   alt="Ersatzteilsuche mit Bild vom Typenschild" border="0"></a>
+</div>		<br><br> <hr><br>
+
+   
+       
+       
+ 		
+		
+
+
+
+   
+                  
+			<h4><div class='box' style='background: #00AE2C !important' ><h1>Ger&auml;tegruppen "a"</h1><br></div>  </h4> 
+				  <div class='achtundzwanzig'> <a href='../gruppen1/Actioncamera.html'>Actioncamera</a></div> <br>  <div class='achtundzwanzig'> <a href='../gruppen1/Akku-Schlagbohrschrauber.html'>Akku-Schlagbohrschrauber</a></div> <br>  <div class='achtundzwanzig'> <a href='../gruppen1/Akku-Schrauber.html'>Akku-Schrauber</a></div> <br>  <div class='achtundzwanzig'> <a href='../gruppen1/Allesschneider.html'>Allesschneider</a></div> <br>  <div class='achtundzwanzig'> <a href='../gruppen1/Analog+Kameras.html'>Analog Kameras</a></div> <br>  <div class='achtundzwanzig'> <a href='../gruppen1/Anschlu%C3%9Ftechnik.html'>Anschlußtechnik</a></div> <br>  <div class='achtundzwanzig'> <a href='../gruppen1/Antennen-Technik.html'>Antennen-Technik</a></div> <br>  <div class='achtundzwanzig'> <a href='../gruppen1/Anzeige-+%2A+Darstellungsger%C3%A4te.html'>Anzeige- / Darstellungsgeräte</a></div> <br>  <div class='achtundzwanzig'> <a href='../gruppen1/Arbeitsplatten-Dunstabzugshaube.html'>Arbeitsplatten-Dunstabzugshaube</a></div> <br>  <div class='achtundzwanzig'> <a href='../gruppen1/Armaturen.html'>Armaturen</a></div> <br>  <div class='achtundzwanzig'> <a href='../gruppen1/Audio.html'>Audio</a></div> <br>  <div class='achtundzwanzig'> <a href='../gruppen1/Audio+Zubeh%C3%B6r.html'>Audio Zubehör</a></div> <br>  <div class='achtundzwanzig'> <a href='../gruppen1/Audio-Einzelbausteine.html'>Audio-Einzelbausteine</a></div> <br>  <div class='achtundzwanzig'> <a href='../gruppen1/Audio-Einzelger%C3%A4te+station%C3%A4r.html'>Audio-Einzelgeräte stationär</a></div> <br>  <div class='achtundzwanzig'> <a href='../gruppen1/Audio-Mischpult.html'>Audio-Mischpult</a></div> <br>  <div class='achtundzwanzig'> <a href='../gruppen1/Audio-Umschalter%2A+Verteiler.html'>Audio-Umschalter/ Verteiler</a></div> <br>  <div class='achtundzwanzig'> <a href='../gruppen1/Aufnahme-+%2ASpeichermedien.html'>Aufnahme- /Speichermedien</a></div> <br>  <div class='achtundzwanzig'> <a href='../gruppen1/Automobile+%2A+Automarken.html'>Automobile / Automarken</a></div> <br>  <div class='achtundzwanzig'> <a href='../gruppen1/Autoradio+%2B+GSM-Telefon.html'>Autoradio + GSM-Telefon</a></div> <br>  <div class='achtundzwanzig'> <a href='../gruppen1/Autoradiokomponenten.html'>Autoradiokomponenten</a></div> <br>  <div class='achtundzwanzig'> <a href='../gruppen1/AV+Sende-%2AEmpfangssysteme.html'>AV Sende-/Empfangssysteme</a></div> <br>  <div class='achtundzwanzig'> <a href='../gruppen1/AV-Lautsprecher+%28aktiv%29.html'>AV-Lautsprecher (aktiv)</a></div> <br>  <div class='achtundzwanzig'> <a href='../gruppen1/AV-Lautsprecher+%28passiv%29.html'>AV-Lautsprecher (passiv)</a></div> <br>  <div class='achtundzwanzig'> <a href='../gruppen1/AV-Systeme.html'>AV-Systeme</a></div> <br>  <div class='achtundzwanzig'> <a href='../gruppen1/AV-Systeme+%28Laufwerk%29.html'>AV-Systeme (Laufwerk)</a></div> <br>25        
+        
+        
+        
+ 
+		 </div>
+</div>
+ 
+   
+<div class="dreissig">   
+    
+<div class="infoboxtop">
+                        Info-Box / Kundeninformation</div>
+
+<div class="infobox">
+                             <a href="/shop/shop2.php?art=warenkorbanzeigen"><div id="wako" class="wkbox " style="text-align: right;">
+						   Der Warenkorb ist leer. 
+                        
+              </div> </a>
+							 <p><a href="/bestellinfo.php">Versandkosten<br>Lieferzeiten<br>Zahlung</a></p>
+                             
+                             <p><a href="javascript:Fe=window.open('https://shop.euras.com/anfrage.php?login=20297','garry','width=800,height=800,menubar=no,scrollbars,resizable',screenx=50);Fe.focus();">Ersatzteilanfrage</a></p>
+                             <p><a href="/batterie.php">Batteriegesetz</a></p>
+                             <p><a href="/agb.php">AGB</a></p>
+                             <p><a href="/impressum.php">Impressum</a></p>
+                             <p><a href="/datenschutz.php">Datenschutz</a></p>
+                             <p><a href="/retouren.php">Retouren</a></p>
+                             <p><a href="/widerrufanzeigen.php">Widerrufsrecht</a></p>
+						        
+              </div>
+                 
+                <div class="nachtbox">
+                           <p>Taggleicher Versand </p>
+                           <p>bis 15 Uhr bestellt...</p>
+                           
+                           <p><a href="/mehrlieferung.php">mehr...</a></p>
+						  </div>          
+              <div class="box">
+                            <h3>20 Jahre Online-Ersatzteil-Vertrieb<br>2002-2022</h3>  </div>
+                            
+                            
+                            
+                         <div class="imgHolder fullWidth"><img src="/img/pp.gif" alt="image" /></div>       </div>
+   
+   
+   
+   </div>
+
+
+
+ <div class="hundert">
+   <div class="grey padding1"> 
+                    
+                     <p> Ger&auml;tegruppen:</p>
+     <p>  <a href="/gruppen0/a.html">A </a>&nbsp;&nbsp; <a href="/gruppen0/b.html">B  </a>&nbsp;&nbsp; <a href="/gruppen0/c.html">C </a>&nbsp;&nbsp; <a href="/gruppen0/d.html">D</a>&nbsp;&nbsp; <a href="/gruppen0/e.html">E </a>&nbsp;&nbsp; <a href="/gruppen0/f.html">F </a>&nbsp;&nbsp; <a href="/gruppen0/g.html">G </a>&nbsp;&nbsp; <a href="/gruppen0/h.html">H </a>&nbsp;&nbsp; <a href="/gruppen0/i.html">I </a>&nbsp;&nbsp; <a href="/gruppen0/j.html">J </a>&nbsp;&nbsp; <a href="/gruppen0/k.html">K </a>&nbsp;&nbsp; <a href="/gruppen0/l.html">L </a>&nbsp;&nbsp; <a href="/gruppen0/m.html">M </a>&nbsp;&nbsp; <a href="/gruppen0/n.html">N </a>&nbsp;&nbsp; <a href="/gruppen0/o.html">O </a>&nbsp;&nbsp; <a href="/gruppen0/p.html">P</a>&nbsp;&nbsp; <a href="/gruppen0/q.html">Q </a>&nbsp;&nbsp; <a href="/gruppen0/r.html">R </a>&nbsp;&nbsp; <a href="/gruppen0/s.html">S </a>&nbsp;&nbsp; <a href="/gruppen0/t.html">T </a>&nbsp;&nbsp; <a href="/gruppen0/u.html">U</a>&nbsp;&nbsp; <a href="/gruppen0/v.html">V</a>&nbsp;&nbsp; <a href="/gruppen0/w.html">W</a>&nbsp;&nbsp; <a href="/gruppen0/x.html">X</a>&nbsp;&nbsp; <a href="/gruppen0/y.html">Y</a>&nbsp;&nbsp; <a href="/gruppen0/z.html">Z</a> </p>
+                      <p>Hersteller:</p>
+                      <p> <a href="/hersteller/a.html">A </a>&nbsp;&nbsp; <a href="/hersteller/b.html">B </a>&nbsp;&nbsp; <a href="/hersteller/c.html">C </a>&nbsp;&nbsp; <a href="/hersteller/d.html">D </a>&nbsp;&nbsp; <a href="/hersteller/e.html">E </a>&nbsp;&nbsp; <a href="/hersteller/f.html">F </a>&nbsp;&nbsp; <a href="/hersteller/g.html">G </a>&nbsp;&nbsp; <a href="/hersteller/h.html">H </a>&nbsp;&nbsp; <a href="/hersteller/i.html">I </a>&nbsp;&nbsp; <a href="/hersteller/j.html">J </a>&nbsp;&nbsp; <a href="/hersteller/k.html">K </a>&nbsp;&nbsp; <a href="/hersteller/l.html">L </a>&nbsp;&nbsp; <a href="/hersteller/m.html">M </a>&nbsp;&nbsp; <a href="/hersteller/n.html">N </a>&nbsp;&nbsp; <a href="/hersteller/o.html">O </a>&nbsp;&nbsp; <a href="/hersteller/p.html">P </a>&nbsp;&nbsp; <a href="/hersteller/q.html">Q </a>&nbsp;&nbsp; <a href="/hersteller/r.html">R </a>&nbsp;&nbsp; <a href="/hersteller/s.html">S </a>&nbsp;&nbsp; <a href="/hersteller/t.html">T </a>&nbsp;&nbsp; <a href="/hersteller/u.html">U </a>&nbsp;&nbsp; <a href="/hersteller/v.html">V </a>&nbsp;&nbsp; <a href="/hersteller/w.html">W </a>&nbsp;&nbsp; <a href="/hersteller/x.html">X </a>&nbsp;&nbsp; <a href="/hersteller/y.html">Y </a>&nbsp;&nbsp; <a href="/hersteller/z.html">Z </a> </p>
+                      <h4>Ersatzteile Schnell Versand ---- 24Std. Lieferservice ---- Riesenauswahl ---- Komfortable Suchfunktion<br />Ersatzteile und Zubehör - Die Ersatzteil Suchmaschine- Der Onlineshop</h4>
+                      <p>© 2011-2017 ersatzteilBLITZ® Alle Inhalte unterliegen unserem Copyright (D7/4)</p>
+                     
+  </div>
+   
+   </div>
+                    
+ 
+</div>
+</div>
+
+ 	
+	
+ <!--- Pd zeuchs -->
+    
+<script language="JavaScript" type="text/javascript" src="/blitz.js"></script>
+    <script type="text/javascript">
+function NaviFenster () {
+  Navigation = window.open("info.php", "Navigation", "height=200,width=300,resizeable=yes");
+  Navigation.focus();
+}
+</script>
+<script type="text/javascript">
+//
+$(document).ready(function() { $('#suchbg').focus(); });
+
+
+var lim ="";
+function pageScroll() {
+	
+
+if (lim !="hu") 
+{	
+// alert(lim);
+
+    	window.scrollBy(0,140); // horizontal and vertical scroll 
+	
+
+		lim="hu";
+}
+
+}
+</script>
+    
+ 
+ 
+    
+ 
+    
+</body>
+
+</html> 
+liste30
+
+ 

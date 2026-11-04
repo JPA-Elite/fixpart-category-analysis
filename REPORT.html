@@ -1,0 +1,136 @@
+<!doctype html><html><head><meta charset='utf-8'><style>
+@page { size: A4; margin: 14mm 14mm 12mm 14mm; }
+body { font-family: "Segoe UI", Arial, sans-serif; font-size: 9.5pt; line-height: 1.3; color: #111; }
+h1 { font-size: 16pt; margin: 0 0 4pt 0; }
+h2 { font-size: 11pt; margin: 8pt 0 2pt 0; border-bottom: 0.6pt solid #ccc; padding-bottom: 2pt; }
+p { margin: 3pt 0; }
+ul, ol { margin: 3pt 0 3pt 14pt; padding: 0; }
+li { margin: 1pt 0; }
+table { border-collapse: collapse; width: 100%; margin: 4pt 0; font-size: 8.4pt; }
+th, td { border: 0.5pt solid #bbb; padding: 2.5pt 3.5pt; vertical-align: top; text-align: left; }
+th { background: #eee; }
+code { font-family: Consolas, monospace; font-size: 8.4pt; background: #f4f4f4; padding: 0 1pt; }
+pre { background: #f4f4f4; padding: 4pt 5pt; font-size: 8.2pt; line-height: 1.3; white-space: pre-wrap; }
+hr { display: none; }
+</style></head><body><h1>FixPart.de category structure — analysis and rebuild plan</h1>
+<p><strong>Date:</strong> 2026-11-03 · <strong>Method:</strong> public fixpart.de pages read through a rendering proxy (the site blocks plain clients with a JS captcha), plus archived snapshots of the three comparison shops. Evidence: <code>research/</code>, <code>build_data.py</code>.</p>
+<h2>1. What the “tree” actually is</h2>
+<p>FixPart has <strong>two orthogonal axes</strong>, not one deep clickable tree:</p>
+<table>
+<thead>
+<tr>
+<th>Axis</th>
+<th>Level</th>
+<th>Count</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Device</td>
+<td>L0 appliance group</td>
+<td><strong>105</strong></td>
+<td>Waschmaschine, Kühlschrank, Backofen</td>
+</tr>
+<tr>
+<td>Device</td>
+<td>L1 brand</td>
+<td><strong>1,511 extracted</strong> (site claims 2,000+)</td>
+<td>Bosch, Siemens, Miele</td>
+</tr>
+<tr>
+<td>Device</td>
+<td>L2 model / type number</td>
+<td>not enumerated (thousands per brand; Bosch washing machines: 14,228 hits)</td>
+<td>WGG244Z40</td>
+</tr>
+<tr>
+<td>Part</td>
+<td>L1 browsable part category (flat)</td>
+<td><strong>375</strong></td>
+<td>Türgummi, Türfach, Pumpe</td>
+</tr>
+<tr>
+<td>Part</td>
+<td>separate classification path (5 own levels)</td>
+<td>depth 5; verified sample 33 nodes / 39 products; roots seen: Mechanisch, Elektrische Komponente, Stecker/Kabel</td>
+<td>Mechanisch &gt; Gehäuseteil &gt; Tür/Ventil/Deckel &gt; Tür &gt; Türfach</td>
+</tr>
+</tbody>
+</table>
+<p>The 375 part categories are <strong>siblings</strong>, not a hierarchy: <code>/produktkategorien</code> lists them A–Z and a category page (<code>/ersatzteile/turgummi</code>) links only to appliance groups, brands and popular products — never to sub-categories. The hierarchy exists only as the <code>Produktkategorie</code> field on the product (3–5 levels), and the breadcrumb shows just its leaf (<code>Home &gt; Türfach &gt; product</code>). FixPart markets “5,000+ categories”, but only 375 have index pages; the rest are classification leaves and generated combinations (Q3).</p>
+<h2>2. The logic</h2>
+<p><strong>Navigation is device-first:</strong> appliance group → brand → part category → type-number filter → product. The part index is the second entry point for people who know the part name.</p>
+<p><strong>URLs are a fixed matrix of the two axes:</strong></p>
+<pre><code>/gerate · /{appliance}-ersatzteile · /{appliance}-ersatzteile/{brand}
+/{appliance}-ersatzteile/{part} · /{appliance}-ersatzteile/{brand}/{part}
+/ersatzteile/{part} · /ersatzteile/{brand} · /ersatzteile/{brand}/{part}
+/produkt/{slug}
+</code></pre>
+<p><strong>Breadcrumbs come from those segments</strong>, not from the classification: <code>/waschmaschine-ersatzteile/turgummi</code> → <code>Home &gt; Waschmaschine Ersatzteile &gt; Türgummi</code>; product → <code>Home &gt; Türfach &gt; &lt;product&gt;</code>.</p>
+<p><strong>Filters are the third dimension:</strong> brand pages expose <em>Gerät</em>, <em>Marke</em> and a long <em>Typennummer</em> picker plus the result count; part pages add brand and appliance tiles. Effective facets: <strong>appliance type, brand, model/type number, part category</strong>, plus price/availability on the listing.</p>
+<p><strong>One product, many listings.</strong> Each product has exactly <strong>one</strong> classification path. It appears under many appliances and brands through compatibility data: the sample lists <code>Gerätemarke(n): Bosch, Siemens</code>, <code>Geräteart(en): Gefrierschrank, Kühl-Gefrierkombination, Kühlschrank</code> and “1,802 compatible devices”. So one SKU is reachable via dozens of appliance×part pages without dozens of category assignments. “Alternative Produkte” (original / aftermarket / refurbished) are separate SKUs, cross-linked.</p>
+<h2>3. Comparison with the three API shops</h2>
+<table>
+<thead>
+<tr>
+<th>Shop</th>
+<th>Navigation</th>
+<th>Depth</th>
+<th>Curated layer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>ersatzteilblitz.de</strong></td>
+<td><em>Gerätegruppen A–Z</em> (<code>/gruppen0/a.html</code>), <em>Artikelgruppen A–Z</em> (<code>/artikel0/a.html</code>), <code>/artikel.php?link=…</code>; inquiries deep-link to <code>shop.euras.com</code></td>
+<td>2</td>
+<td>none; supplier dimensions only</td>
+</tr>
+<tr>
+<td><strong>wildbihler-shop.de</strong></td>
+<td>Hersteller A–Z (<code>/hersteller.html</code>), Geräte A–Z (<code>/geraete.html</code>), <code>/{brand}_{model}_ersatzteil_{id}.html</code></td>
+<td>2–3</td>
+<td>none; brand and brand+device are separate pseudo-manufacturers (<code>AEG-DAMPFBÜGELEISEN</code>)</td>
+</tr>
+<tr>
+<td><strong>ersatzteile-24.com</strong></td>
+<td>Brand index <code>/A.php</code>, <code>/{brand}-ersatzteile.html</code>, brand×device <code>/BOSCH/Waschmaschine.html</code> (paginated model lists), <code>/ersatzteile_WASCHMASCHINE.php</code></td>
+<td>3</td>
+<td>none; <code>/shop.php</code> assistant only</td>
+</tr>
+<tr>
+<td><strong>fixpart.de</strong></td>
+<td>105 appliance groups → ~1,500 brands → 375 part categories → type number</td>
+<td>3 navigable + 5 classification</td>
+<td><strong>yes</strong>: renamed groups, part categories, classification, SEO landings, fit guarantee</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Identical:</strong> all four expose the same dimensions — part brand, device brand, device type, model/type number, article number, description, compatibility.</p>
+<p><strong>Different:</strong> the three API shops publish the raw supplier dimensions (brand, device, model, article group) and even treat brand×device combinations as separate “manufacturers”; FixPart normalizes them into one appliance list, adds its own part-category and classification layer, and generates landing pages from the cross-product of both axes.</p>
+<p><strong>API provides directly:</strong> article number, MPN, description, part type/group in supplier wording, device brand(s), device type(s), model/type numbers and compatibility, price/stock. <strong>API does not provide:</strong> FixPart’s appliance-group names, its 375 part-category names, the 5-level “Mechanisch &gt; Gehäuseteil &gt; …” path, SEO copy or landing-page composition. That editorial layer is why FixPart looks like a store and the other three look like databases.</p>
+<h2>4. Implementation (Laravel / PostgreSQL / Meilisearch)</h2>
+<p><strong>Schema</strong> (<code>implementation/database/migrations/…create_catalog_tables.php</code>):</p>
+<pre><code>categories(id, parent_id, type[part|appliance], name, slug, path, depth, position, is_active, meta)
+brands(id, name, slug, logo_path)
+models(id, brand_id, appliance_category_id, type_number, name, slug)
+products(id, sku, mpn, name, slug, brand_id, primary_category_id, condition, price_cents, stock, is_active)
+product_category(product_id, category_id, is_primary, source)
+product_model(product_id, model_id, source)          -- compatibility
+category_aliases(source, source_path, category_id)   -- stable re-imports
+seo_landings(appliance_category_id, brand_id, category_id, path, title, intro, product_count, is_indexable)
+</code></pre>
+<p><code>categories</code> is an adjacency list <strong>plus</strong> a materialized dot path, so a subtree is one indexed <code>LIKE 'mechanisch.%'</code> query — no recursive CTE per request. Uniqueness is <code>(type, parent_id, slug)</code>, which allows “Tür” under both <code>Fenster</code> and <code>Tür/Ventil/Deckel</code> as FixPart does; public URL uniqueness lives in <code>seo_landings</code>.</p>
+<p><strong>Mapping</strong> (<code>CatalogImporter.php</code>): normalize supplier strings via aliases → upsert product with <strong>one</strong> primary category from the feed path, creating intermediate nodes idempotently → attach <code>product_model</code> compatibility rows (this drives appliance/brand listings, not extra categories) → derive facet columns → queue reindex → nightly full import.</p>
+<p><strong>Meilisearch:</strong> one <code>products</code> index with denormalized <code>category_ids</code>, <code>category_path</code>, <code>brand</code>, <code>appliance_types</code>, <code>device_brands</code>, <code>condition</code>, <code>price</code>, <code>in_stock</code> as filterables. Category pages resolve subtree ids in PostgreSQL and filter <code>category_ids IN [...]</code>; facet counts come from <code>facetDistribution</code>. Meilisearch has no hierarchical facets, so the tree/breadcrumb stays in Postgres. “Find by type number” uses a separate <code>models</code> index (<code>type_number_normalized</code>) returning <code>product_ids</code>.</p>
+<h2>5. Open questions and assumptions</h2>
+<ol>
+<li><strong>Wholesaler identity.</strong> <em>Assumption:</em> an EURAS-type catalog — ersatzteilblitz deep-links to <code>shop.euras.com</code>, and the others mirror the same dimensions. Confirm the contract and delivered fields.</li>
+<li><strong>Does the feed contain a product-group path?</strong> If yes, map it 1:1; if not, the 375-node list must be curated (<code>data/part-categories.json</code> is a starting point).</li>
+<li><strong>5,000 vs 375.</strong> The difference is probably classification leaves and generated combinations; only product-level data reveals the full set, so the tree file contains a verified sample, not a complete dump.</li>
+<li><strong>Model counts</strong> cannot be enumerated from outside (type-number picker, no model URLs); they must come from the compatibility feed.</li>
+<li><strong>Coverage.</strong> Brand count is the unique union of the A–Z directory at capture time (1,511); FixPart states “over 2,000”, so some brands are probably not linked in the directory. Appliance and part lists are complete for that moment.</li>
+<li><strong>Legal.</strong> Research used public pages only. Build our taxonomy from our own feed plus editorial work, not from scraped FixPart content.</li>
+</ol>
+<p><strong>Files:</strong> <code>data/category-tree.json</code> (tree, counts, URL patterns) · <code>data/category-tree.csv</code> (flat, <code>;</code>, UTF-8-BOM) · per-axis JSONs · <code>implementation/</code> (migration, importer, indexer, Meilisearch settings).</p></body></html>

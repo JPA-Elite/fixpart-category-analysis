@@ -1,0 +1,48 @@
+{
+  "products": {
+    "searchableAttributes": [
+      "name",
+      "mpn",
+      "sku",
+      "brand",
+      "category_names",
+      "appliance_types",
+      "model_numbers"
+    ],
+    "filterableAttributes": [
+      "brand",
+      "brand_id",
+      "category_ids",
+      "primary_category_id",
+      "appliance_types",
+      "appliance_type_ids",
+      "device_brands",
+      "condition",
+      "in_stock",
+      "price"
+    ],
+    "sortableAttributes": ["price", "created_at"],
+    "rankingRules": [
+      "words",
+      "typo",
+      "proximity",
+      "attribute",
+      "sort",
+      "exactness",
+      "in_stock:desc",
+      "price:asc"
+    ],
+    "typoTolerance": {
+      "enabled": true,
+      "minWordSizeForTypos": { "oneTypo": 5, "twoTypos": 9 },
+      "disableOnAttributes": ["mpn", "sku", "model_numbers"]
+    },
+    "pagination": { "maxTotalHits": 2000 },
+    "faceting": { "maxValuesPerFacet": 100 }
+  },
+  "models": {
+    "searchableAttributes": ["type_number", "type_number_normalized", "brand", "appliance"],
+    "filterableAttributes": ["brand", "appliance"],
+    "rankingRules": ["words", "typo", "proximity", "attribute", "exactness"]
+  }
+}

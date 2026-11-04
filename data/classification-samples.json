@@ -1,0 +1,334 @@
+[
+ {
+  "product": "bosch-siemens-10008234-anzeige-geschirrspuler",
+  "path": [
+   "Elektrische Komponente",
+   "Modul/elektrische Einheit",
+   "Anzeige"
+  ]
+ },
+ {
+  "product": "brandt-as0074492-anzeige",
+  "path": [
+   "Elektrische Komponente",
+   "Modul/elektrische Einheit",
+   "Anzeige"
+  ]
+ },
+ {
+  "product": "bosch-siemens-00418674-lager-geschirrspuler",
+  "path": [
+   "Mechanisch",
+   "Antriebsteil",
+   "Lager"
+  ]
+ },
+ {
+  "product": "beko-grundig-arcelik-c00912655-dichtung-geschirrspuler",
+  "path": [
+   "Mechanisch",
+   "Dichtung",
+   "Dichtung"
+  ]
+ },
+ {
+  "product": "beko-grundig-arcelik-c00914092-dichtung-geschirrspuler",
+  "path": [
+   "Mechanisch",
+   "Dichtung",
+   "Dichtung"
+  ]
+ },
+ {
+  "product": "bosch-siemens-00263096-dichtung-geschirrspuler",
+  "path": [
+   "Mechanisch",
+   "Dichtung",
+   "Dichtung"
+  ]
+ },
+ {
+  "product": "bosch-siemens-00298534-dichtung-geschirrspuler",
+  "path": [
+   "Mechanisch",
+   "Dichtung",
+   "Dichtung"
+  ]
+ },
+ {
+  "product": "bosch-siemens-00265066-abdeckkappe-dunstabzugshaube",
+  "path": [
+   "Mechanisch",
+   "Gehäuseteil",
+   "Abdeckkappe"
+  ]
+ },
+ {
+  "product": "bosch-siemens-00600433-abdeckkappe-trockner",
+  "path": [
+   "Mechanisch",
+   "Gehäuseteil",
+   "Abdeckkappe"
+  ]
+ },
+ {
+  "product": "bosch-siemens-00600949-abdeckkappe-geschirrspuler",
+  "path": [
+   "Mechanisch",
+   "Gehäuseteil",
+   "Abdeckkappe"
+  ]
+ },
+ {
+  "product": "bosch-siemens-10001811-abdeckkappe",
+  "path": [
+   "Mechanisch",
+   "Gehäuseteil",
+   "Abdeckkappe"
+  ]
+ },
+ {
+  "product": "electrolux-aeg-140129634014-abdeckkappe",
+  "path": [
+   "Mechanisch",
+   "Gehäuseteil",
+   "Abdeckkappe"
+  ]
+ },
+ {
+  "product": "smeg-762173619-abdeckkappe",
+  "path": [
+   "Mechanisch",
+   "Gehäuseteil",
+   "Abdeckkappe"
+  ]
+ },
+ {
+  "product": "beko-grundig-arcelik-1732840100-abdeckung-geschirrspuler",
+  "path": [
+   "Mechanisch",
+   "Gehäuseteil",
+   "Abdeckung"
+  ]
+ },
+ {
+  "product": "delonghi-5315110071-abdeckung-klimaanlage",
+  "path": [
+   "Mechanisch",
+   "Gehäuseteil",
+   "Abdeckung"
+  ]
+ },
+ {
+  "product": "whirlpool-indesit-481010604351-abdeckung-geschirrspuler",
+  "path": [
+   "Mechanisch",
+   "Gehäuseteil",
+   "Abdeckung"
+  ]
+ },
+ {
+  "product": "bosch-siemens-00448339-staubkappe",
+  "path": [
+   "Mechanisch",
+   "Gehäuseteil",
+   "Staubkappe"
+  ]
+ },
+ {
+  "product": "bosch-siemens-00644825-geratekabel",
+  "path": [
+   "Stecker/Kabel",
+   "Netzkabel",
+   "Gerätekabel"
+  ]
+ },
+ {
+  "product": "bosch-siemens-00576616-netzkabel",
+  "path": [
+   "Stecker/Kabel",
+   "Netzkabel",
+   "Netzkabel"
+  ]
+ },
+ {
+  "product": "bosch-siemens-00645033-netzkabel-geschirrspuler",
+  "path": [
+   "Stecker/Kabel",
+   "Netzkabel",
+   "Netzkabel"
+  ]
+ },
+ {
+  "product": "bosch-siemens-17004257-kombi-saugduse-staubsauger",
+  "path": [
+   "Mechanisch",
+   "Anschlussmaterial",
+   "Saugdüse",
+   "Kombi-Saugdüse"
+  ]
+ },
+ {
+  "product": "saeco-996530059406-o-ring-kaffeemaschine",
+  "path": [
+   "Mechanisch",
+   "Dichtung",
+   "Dichtungsring",
+   "O-Ring"
+  ]
+ },
+ {
+  "product": "groupe-seb-rs-2230001095-abdeckkappe-staubsauger",
+  "path": [
+   "Mechanisch",
+   "Gehäuseteil",
+   "Abdeckung",
+   "Abdeckkappe"
+  ]
+ },
+ {
+  "product": "bosch-siemens-00629040-verriegelung",
+  "path": [
+   "Mechanisch",
+   "Gehäuseteil",
+   "Abdeckung",
+   "Verriegelung"
+  ]
+ },
+ {
+  "product": "beko-grundig-arcelik-2915100100-tur-waschmaschine",
+  "path": [
+   "Mechanisch",
+   "Gehäuseteil",
+   "Fenster",
+   "Tür"
+  ]
+ },
+ {
+  "product": "bosch-siemens-00704285-tur-waschmaschine",
+  "path": [
+   "Mechanisch",
+   "Gehäuseteil",
+   "Fenster",
+   "Tür"
+  ]
+ },
+ {
+  "product": "bosch-siemens-00704286-tur-waschmaschine",
+  "path": [
+   "Mechanisch",
+   "Gehäuseteil",
+   "Fenster",
+   "Tür"
+  ]
+ },
+ {
+  "product": "bosch-siemens-00704287-tur-waschmaschine",
+  "path": [
+   "Mechanisch",
+   "Gehäuseteil",
+   "Fenster",
+   "Tür"
+  ]
+ },
+ {
+  "product": "bosch-siemens-11008957-tur-waschmaschine",
+  "path": [
+   "Mechanisch",
+   "Gehäuseteil",
+   "Fenster",
+   "Tür"
+  ]
+ },
+ {
+  "product": "bosch-siemens-11012071-tur",
+  "path": [
+   "Mechanisch",
+   "Gehäuseteil",
+   "Fenster",
+   "Tür"
+  ]
+ },
+ {
+  "product": "hisense-gorenje-579799-tur-waschmaschine",
+  "path": [
+   "Mechanisch",
+   "Gehäuseteil",
+   "Fenster",
+   "Tür"
+  ]
+ },
+ {
+  "product": "hisense-gorenje-687533-tur-waschmaschine",
+  "path": [
+   "Mechanisch",
+   "Gehäuseteil",
+   "Fenster",
+   "Tür"
+  ]
+ },
+ {
+  "product": "tur-fur-waschmaschine-von-bosch-neff-siemens-und-mehr-altpart-00704286",
+  "path": [
+   "Mechanisch",
+   "Gehäuseteil",
+   "Fenster",
+   "Tür"
+  ]
+ },
+ {
+  "product": "tur-fur-waschmaschine-von-siemens-altpart-00704287",
+  "path": [
+   "Mechanisch",
+   "Gehäuseteil",
+   "Fenster",
+   "Tür"
+  ]
+ },
+ {
+  "product": "bosch-siemens-00703294-tur-kaffeemaschine",
+  "path": [
+   "Mechanisch",
+   "Gehäuseteil",
+   "Tür/Ventil/Deckel",
+   "Tür"
+  ]
+ },
+ {
+  "product": "electrolux-aeg-8996711636028-tur",
+  "path": [
+   "Mechanisch",
+   "Gehäuseteil",
+   "Tür/Ventil/Deckel",
+   "Tür"
+  ]
+ },
+ {
+  "product": "delonghi-7313251451-bruhgruppe-kaffeemaschine",
+  "path": [
+   "Mechanisch",
+   "Mechanischer Filter",
+   "Kaffeefilter",
+   "Brühgruppe"
+  ]
+ },
+ {
+  "product": "kohlefilter-fur-dunstabzugshaube-von-aeg-faber-franke-und-mehr-eurofilter-t230",
+  "path": [
+   "Mechanisch",
+   "Mechanischer Filter",
+   "Luftfilter",
+   "Kohlefilter"
+  ]
+ },
+ {
+  "product": "bosch-siemens-00705901-turfach",
+  "path": [
+   "Mechanisch",
+   "Gehäuseteil",
+   "Tür/Ventil/Deckel",
+   "Tür",
+   "Türfach"
+  ]
+ }
+]
